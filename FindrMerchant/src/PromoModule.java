@@ -7,7 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class createPromo extends StringValues{
+public class PromoModule extends StringValues{
 	private WebDriver driver;
 	private String baseUrl;
 
@@ -153,8 +153,9 @@ public class createPromo extends StringValues{
 		}
 	}
 
+
 	public void toLogin() {
-		driver.get(baseUrl);
+//		driver.get(baseUrl);
 		driver.findElement(By.name(uNameField)).sendKeys(AuthUname);
 		driver.findElement(By.name(passField)).sendKeys(AuthPass);
 		driver.findElement(By.xpath(btnLogin)).click();
