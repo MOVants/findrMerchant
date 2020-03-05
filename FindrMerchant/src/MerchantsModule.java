@@ -3,11 +3,12 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.*;
+import org.junit.jupiter.api.RepeatedTest;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class MerchantsModule {
+public class MerchantsModule extends StringValues {
 	public  WebDriver driver;
 	private String baseUrl;
 
@@ -20,15 +21,13 @@ public class MerchantsModule {
 		driver.manage().window().maximize();
 	}
 
-	@Test
+	@Test(3)
 	public void createMerTest() throws Exception {
-		PromoModule getLogin = new PromoModule();
-		Thread.sleep(2000);
-		getLogin.toLogin();
 		toLogin();
 		navtoMerchant();
 		addNewMerchant();
 		setMerchantDetails();
+		Thread.sleep(5000);
 		saveMerchant();
 		Thread.sleep(5000);
 
@@ -71,11 +70,13 @@ public class MerchantsModule {
 		driver.findElement(By.xpath("//button[text()='Save']")).click();
 	}
 
-	private void setMerchantDetails() {
+	private void setMerchantDetails() throws InterruptedException {
 		driver.findElement(By.xpath("//input[@type='text'][@name='name']")).sendKeys(RandomStringUtils.randomNumeric(6));
 		driver.findElement(By.xpath("//input[@type='text'][@name='email']")).sendKeys(RandomStringUtils.randomNumeric(6)+"."+RandomStringUtils.randomNumeric(6)+"@"+RandomStringUtils.randomNumeric(4)+".com");
 		driver.findElement(By.xpath("//select[@name='info.branch.id']")).click();
-		new Select(driver.findElement(By.id("branches"))).selectByIndex(2);
+		Thread.sleep(5000);
+		new Select(driver.findElement(By.id("branches"))).selectByIndex(1);
+		Thread.sleep(5000);
 
 
 	}

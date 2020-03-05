@@ -7,9 +7,9 @@ public class StringValues {
 	protected String randomNumChar = RandomStringUtils.randomAlphabetic(11);
 
 	//Auth
-	protected String AuthUname = "altair@satellite.com.ph";
+	protected String AuthUname = "marvin.villaruel@safesat.com.ph";
 	protected String AuthPass = "1";
-
+	
 	//Login
 	protected String uNameField = "username";
 	protected String passField = "password";
